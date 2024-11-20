@@ -1,3 +1,4 @@
+// champions
 const akali = 1;
 const ambessa = 2;
 const amumu = 3;
@@ -59,36 +60,149 @@ const ziggs = 58;
 const zoe = 59;
 const zyra = 60;
 
-export const Trait = {
+// traits
+// ??
+
+export type Trait = {
+  id: string;
+  arr: number[];
+  active: number[];
+};
+
+export const trait: { [key: string]: Trait } = {
   // origins
-  academy: [ezreal, heimerdinger, jayce, leona, lux],
-  automata: [amumu, blitzcrank, kogMaw, malzahar, nocturne],
-  blackRose: [cassiopeia, elise, leblanc, morgana, vladimir],
-  chemBaron: [renata, renni, sevika, silco, singed, smeech],
-  conqueror: [ambessa, darius, draven, mordekaiser, rell, swain],
-  emissary: [ambessa, garen, nami, tristana],
-  enforcer: [caitlyn, camille, loris, maddie, steb, twistedFate, vi],
-  experiment: [drMundo, nunu, twitch, urgot, zyra],
-  family: [powder, vander, violet],
-  firelight: [ekko, scar, zeri],
-  highRoller: [sevika],
-  junkerKing: [rumble],
-  rebel: [akali, ezreal, illaoi, irelia, jinx, sett, vex, zoe],
-  scrap: [corki, ekko, gangplank, powder, rumble, trundle, ziggs],
+  academy: {
+    id: 'academy',
+    arr: [ezreal, heimerdinger, jayce, leona, lux],
+    active: [3, 4, 5, 6],
+  },
+  automata: {
+    id: 'automata',
+    arr: [amumu, blitzcrank, kogMaw, malzahar, nocturne],
+    active: [2, 4, 6],
+  },
+  blackRose: {
+    id: 'blackRose',
+    arr: [cassiopeia, elise, leblanc, morgana, vladimir],
+    active: [3, 4, 5, 7],
+  },
+  chemBaron: {
+    id: 'chemBaron',
+    arr: [renata, renni, sevika, silco, singed, smeech],
+    active: [3, 4, 5, 6, 7],
+  },
+  conqueror: {
+    id: 'conqueror',
+    arr: [ambessa, darius, draven, mordekaiser, rell, swain],
+    active: [2, 4, 6, 9],
+  },
+  emissary: {
+    id: 'emissary',
+    arr: [ambessa, garen, nami, tristana],
+    active: [1, 4],
+  },
+  enforcer: {
+    id: 'enforcer',
+    arr: [caitlyn, camille, loris, maddie, steb, twistedFate, vi],
+    active: [2, 4, 6, 8, 10],
+  },
+  experiment: {
+    id: 'experiment',
+    arr: [drMundo, nunu, twitch, urgot, zyra],
+    active: [3, 5, 7],
+  },
+  family: {
+    id: 'family',
+    arr: [powder, vander, violet],
+    active: [3, 4, 5],
+  },
+  firelight: {
+    id: 'firelight',
+    arr: [ekko, scar, zeri],
+    active: [2, 3, 4],
+  },
+  highRoller: {
+    id: 'highRoller',
+    arr: [sevika],
+    active: [1],
+  },
+  junkerKing: {
+    id: 'junkerKing',
+    arr: [rumble],
+    active: [1],
+  },
+  rebel: {
+    id: 'rebel',
+    arr: [akali, ezreal, illaoi, irelia, jinx, sett, vex, zoe],
+    active: [3, 5, 7, 10],
+  },
+  scrap: {
+    id: 'scrap',
+    arr: [corki, ekko, gangplank, powder, rumble, trundle, ziggs],
+    active: [2, 4, 6, 9],
+  },
 
   // classes
-  ambusher: [camille, ekko, jinx, powder, smeech],
-  artillerist: [corki, ezreal, tristana, urgot],
-  bruiser: [elise, nunu, renni, sett, steb, trundle],
-  dominator: [blitzcrank, cassiopeia, drMundo, mordekaiser, silco, ziggs],
-  formSwapper: [elise, gangplank, jayce, swain],
-  pitFighter: [draven, gangplank, sevika, urgot, vi, violet],
-  quickstriker: [akali, ambessa, nocturne, twistedFate],
-  sentinel: [illaoi, irelia, leona, loris, rell, rumble, singed],
-  sniper: [caitlyn, kogMaw, maddie, twitch, zeri],
-  sorcerer: [leblanc, lux, nami, swain, vladimir, zoe, zyra],
-  visionary: [heimerdinger, malzahar, morgana, nunu, rell, renata, vex],
-  watcher: [amumu, darius, garen, scar, vander, vladimir],
+  ambusher: {
+    id: 'ambusher',
+    arr: [camille, ekko, jinx, powder, smeech],
+    active: [2, 3, 4, 5],
+  },
+  artillerist: {
+    id: 'artillerist',
+    arr: [corki, ezreal, tristana, urgot],
+    active: [2, 4, 6],
+  },
+  bruiser: {
+    id: 'bruiser',
+    arr: [elise, nunu, renni, sett, steb, trundle],
+    active: [2, 4, 6],
+  },
+  dominator: {
+    id: 'dominator',
+    arr: [blitzcrank, cassiopeia, drMundo, mordekaiser, silco, ziggs],
+    active: [2, 4, 6],
+  },
+  formSwapper: {
+    id: 'formSwapper',
+    arr: [elise, gangplank, jayce, swain],
+    active: [2, 4],
+  },
+  pitFighter: {
+    id: 'pitFighter',
+    arr: [draven, gangplank, sevika, urgot, vi, violet],
+    active: [2, 4, 6, 8],
+  },
+  quickstriker: {
+    id: 'quickstriker',
+    arr: [akali, ambessa, nocturne, twistedFate],
+    active: [2, 3, 4],
+  },
+  sentinel: {
+    id: 'sentinel',
+    arr: [illaoi, irelia, leona, loris, rell, rumble, singed],
+    active: [2, 4, 6],
+  },
+  sniper: {
+    id: 'sniper',
+    arr: [caitlyn, kogMaw, maddie, twitch, zeri],
+    active: [2, 4, 6],
+  },
+  sorcerer: {
+    id: 'sorcerer',
+    arr: [leblanc, lux, nami, swain, vladimir, zoe, zyra],
+    active: [2, 4, 6, 8],
+  },
+  visionary: {
+    id: 'visionary',
+    arr: [heimerdinger, malzahar, morgana, nunu, rell, renata, vex],
+    active: [2, 4, 6, 8],
+  },
+  watcher: {
+    id: 'watcher',
+    arr: [amumu, darius, garen, scar, vander, vladimir],
+    active: [2, 4, 6],
+  },
 
   // team-up
   // geniuses: [ekko, heimerdinger],
@@ -99,376 +213,438 @@ export const Trait = {
   // unlikelyDuo: [jinx, sevika],
   // whatCloudHaveBeen: [vander, silco],
 };
-
 export type Champion = {
-  // id: string;
+  id: string;
   k: number;
   c: number;
-  t: number[][];
+  t: {
+    id: string;
+    arr: number[];
+    active: number[];
+  }[];
   img: string;
 };
 
-export const champions: { [key: string]: Champion } = {
-  akali: {
+export const champions: { [key: number]: Champion } = {
+  [akali]: {
+    id: 'akali',
     k: akali,
     c: 2,
-    t: [Trait.rebel, Trait.quickstriker],
+    t: [trait.rebel, trait.quickstriker],
     img: 'Akali.png',
   },
-  ambessa: {
+  [ambessa]: {
+    id: 'ambessa',
     k: ambessa,
     c: 4,
-    t: [Trait.conqueror, Trait.emissary, Trait.quickstriker],
+    t: [trait.conqueror, trait.emissary, trait.quickstriker],
     img: 'Ambessa.png',
   },
-  amumu: {
+  [amumu]: {
+    id: 'amumu',
     k: amumu,
     c: 1,
-    t: [Trait.automata, Trait.watcher],
+    t: [trait.automata, trait.watcher],
     img: 'Amumu.png',
   },
-  blitzcrank: {
+  [blitzcrank]: {
+    id: 'blitzcrank',
     k: blitzcrank,
     c: 3,
-    t: [Trait.automata, Trait.dominator],
+    t: [trait.automata, trait.dominator],
     img: 'Blitzcrank.png',
   },
-  caitlyn: {
+  [caitlyn]: {
+    id: 'caitlyn',
     k: caitlyn,
     c: 5,
-    t: [Trait.enforcer, Trait.sniper],
+    t: [trait.enforcer, trait.sniper],
     img: 'Caitlyn.png',
   },
-  camille: {
+  [camille]: {
+    id: 'camille',
     k: camille,
     c: 3,
-    t: [Trait.enforcer, Trait.ambusher],
+    t: [trait.enforcer, trait.ambusher],
     img: 'Camille.png',
   },
-  cassiopeia: {
+  [cassiopeia]: {
+    id: 'cassiopeia',
     k: cassiopeia,
     c: 3,
-    t: [Trait.blackRose, Trait.dominator],
+    t: [trait.blackRose, trait.dominator],
     img: 'Cassiopeia.png',
   },
-  corki: {
+  [corki]: {
+    id: 'corki',
     k: corki,
     c: 4,
-    t: [Trait.scrap, Trait.artillerist],
+    t: [trait.scrap, trait.artillerist],
     img: 'Corki.png',
   },
-  darius: {
+  [darius]: {
+    id: 'darius',
     k: darius,
     c: 1,
-    t: [Trait.conqueror, Trait.watcher],
+    t: [trait.conqueror, trait.watcher],
     img: 'Darius.png',
   },
-  drMundo: {
+  [drMundo]: {
+    id: 'drMundo',
     k: drMundo,
     c: 4,
-    t: [Trait.experiment, Trait.dominator],
+    t: [trait.experiment, trait.dominator],
     img: 'DrMundo.png',
   },
-  draven: {
+  [draven]: {
+    id: 'draven',
     k: draven,
     c: 1,
-    t: [Trait.conqueror, Trait.pitFighter],
+    t: [trait.conqueror, trait.pitFighter],
     img: 'Draven.png',
   },
-  ekko: {
+  [ekko]: {
+    id: 'ekko',
     k: ekko,
     c: 4,
-    t: [Trait.firelight, Trait.ambusher, Trait.scrap],
+    t: [trait.firelight, trait.ambusher, trait.scrap],
     img: 'Ekko.png',
   },
-  elise: {
+  [elise]: {
+    id: 'elise',
     k: elise,
     c: 4,
-    t: [Trait.blackRose, Trait.bruiser, Trait.formSwapper],
+    t: [trait.blackRose, trait.bruiser, trait.formSwapper],
     img: 'Elise.png',
   },
-  ezreal: {
+  [ezreal]: {
+    id: 'ezreal',
     k: ezreal,
     c: 3,
-    t: [Trait.academy, Trait.artillerist, Trait.rebel],
+    t: [trait.academy, trait.artillerist, trait.rebel],
     img: 'Ezreal.png',
   },
-  gangplank: {
+  [gangplank]: {
+    id: 'gangplank',
     k: gangplank,
     c: 3,
-    t: [Trait.scrap, Trait.formSwapper, Trait.pitFighter],
+    t: [trait.scrap, trait.formSwapper, trait.pitFighter],
     img: 'Gangplank.png',
   },
-  garen: {
+  [garen]: {
+    id: 'garen',
     k: garen,
     c: 4,
-    t: [Trait.emissary, Trait.watcher],
+    t: [trait.emissary, trait.watcher],
     img: 'Garen.png',
   },
-  heimerdinger: {
+  [heimerdinger]: {
+    id: 'heimerdinger',
     k: heimerdinger,
     c: 4,
-    t: [Trait.academy, Trait.visionary],
+    t: [trait.academy, trait.visionary],
     img: 'Heimerdinger.png',
   },
-  illaoi: {
+  [illaoi]: {
+    id: 'illaoi',
     k: illaoi,
     c: 4,
 
-    t: [Trait.rebel, Trait.sentinel],
+    t: [trait.rebel, trait.sentinel],
     img: 'Illaoi.png',
   },
-  irelia: {
+  [irelia]: {
+    id: 'irelia',
     k: irelia,
     c: 1,
-    t: [Trait.rebel, Trait.sentinel],
+    t: [trait.rebel, trait.sentinel],
     img: 'Irelia.png',
   },
-  jayce: {
+  [jayce]: {
+    id: 'jayce',
     k: jayce,
     c: 5,
-    t: [Trait.academy, Trait.formSwapper],
+    t: [trait.academy, trait.formSwapper],
     img: 'Jayce.png',
   },
-  jinx: {
+  [jinx]: {
+    id: 'jinx',
     k: jinx,
     c: 5,
-    t: [Trait.rebel, Trait.ambusher],
+    t: [trait.rebel, trait.ambusher],
     img: 'Jinx.png',
   },
-  kogMaw: {
+  [kogMaw]: {
+    id: 'kogMaw',
     k: kogMaw,
     c: 3,
-    t: [Trait.automata, Trait.sniper],
+    t: [trait.automata, trait.sniper],
     img: 'KogMaw.png',
   },
-  leblanc: {
+  [leblanc]: {
+    id: 'leblanc',
     k: leblanc,
     c: 5,
-    t: [Trait.blackRose, Trait.sorcerer],
+    t: [trait.blackRose, trait.sorcerer],
     img: 'Leblanc.png',
   },
-  leona: {
+  [leona]: {
+    id: 'leona',
     k: leona,
     c: 2,
-    t: [Trait.academy, Trait.sentinel],
+    t: [trait.academy, trait.sentinel],
     img: 'Leona.png',
   },
-  loris: {
+  [loris]: {
+    id: 'loris',
     k: loris,
     c: 3,
-    t: [Trait.enforcer, Trait.sentinel],
+    t: [trait.enforcer, trait.sentinel],
     img: 'Loris.jpg',
   },
-  lux: {
+  [lux]: {
+    id: 'lux',
     k: lux,
     c: 1,
-    t: [Trait.academy, Trait.sorcerer],
+    t: [trait.academy, trait.sorcerer],
     img: 'Lux.png',
   },
-  maddie: {
+  [maddie]: {
+    id: 'maddie',
     k: maddie,
     c: 1,
-    t: [Trait.enforcer, Trait.sniper],
+    t: [trait.enforcer, trait.sniper],
     img: 'Maddie.jpg',
   },
-  malzahar: {
+  [malzahar]: {
+    id: 'malzahar',
     k: malzahar,
     c: 5,
-    t: [Trait.automata, Trait.visionary],
+    t: [trait.automata, trait.visionary],
     img: 'Malzahar.png',
   },
-  mordekaiser: {
+  [mordekaiser]: {
+    id: 'mordekaiser',
     k: mordekaiser,
     c: 5,
-    t: [Trait.conqueror, Trait.dominator],
+    t: [trait.conqueror, trait.dominator],
     img: 'Mordekaiser.png',
   },
-  morgana: {
+  [morgana]: {
+    id: 'morgana',
     k: morgana,
     c: 1,
-    t: [Trait.blackRose, Trait.visionary],
+    t: [trait.blackRose, trait.visionary],
     img: 'Morgana.png',
   },
-  nami: {
+  [nami]: {
+    id: 'nami',
     k: nami,
     c: 3,
-    t: [Trait.emissary, Trait.sorcerer],
+    t: [trait.emissary, trait.sorcerer],
     img: 'Nami.png',
   },
-  nocturne: {
+  [nocturne]: {
+    id: 'nocturne',
     k: nocturne,
     c: 2,
-    t: [Trait.automata, Trait.quickstriker],
+    t: [trait.automata, trait.quickstriker],
     img: 'Nocturne.jpg',
   },
-  nunu: {
+  [nunu]: {
+    id: 'nunu',
     k: nunu,
     c: 3,
-    t: [Trait.experiment, Trait.bruiser, Trait.visionary],
+    t: [trait.experiment, trait.bruiser, trait.visionary],
     img: 'Nunu.png',
   },
-  powder: {
+  [powder]: {
+    id: 'powder',
     k: powder,
     c: 1,
-    t: [Trait.family, Trait.ambusher, Trait.scrap],
+    t: [trait.family, trait.ambusher, trait.scrap],
     img: 'Powder.jpg',
   },
-  rell: {
+  [rell]: {
+    id: 'rell',
     k: rell,
     c: 2,
-    t: [Trait.conqueror, Trait.sentinel, Trait.visionary],
+    t: [trait.conqueror, trait.sentinel, trait.visionary],
     img: 'Rell.png',
   },
-  renata: {
+  [renata]: {
+    id: 'renata',
     k: renata,
     c: 2,
-    t: [Trait.chemBaron, Trait.visionary],
+    t: [trait.chemBaron, trait.visionary],
     img: 'Renata.png',
   },
-
-  renni: {
+  [renni]: {
+    id: 'renni',
     k: renni,
     c: 3,
-    t: [Trait.chemBaron, Trait.bruiser],
+    t: [trait.chemBaron, trait.bruiser],
     img: 'Renni.png',
   },
-  rumble: {
+  [rumble]: {
+    id: 'rumble',
     k: rumble,
     c: 5,
-    t: [Trait.junkerKing, Trait.scrap, Trait.sentinel],
+    t: [trait.junkerKing, trait.scrap, trait.sentinel],
     img: 'Rumble.png',
   },
-  scar: {
+  [scar]: {
+    id: 'scar',
     k: scar,
     c: 3,
-    t: [Trait.firelight, Trait.watcher],
+    t: [trait.firelight, trait.watcher],
     img: 'Scar.jpg',
   },
-  sett: {
+  [sett]: {
+    id: 'sett',
     k: sett,
     c: 2,
-    t: [Trait.rebel, Trait.bruiser],
+    t: [trait.rebel, trait.bruiser],
     img: 'Sett.png',
   },
-  sevika: {
+  [sevika]: {
+    id: 'sevika',
     k: sevika,
     c: 5,
-    t: [Trait.chemBaron, Trait.highRoller, Trait.pitFighter],
+    t: [trait.chemBaron, trait.highRoller, trait.pitFighter],
     img: 'Sevika.jpg',
   },
-  silco: {
+  [silco]: {
+    id: 'silco',
     k: silco,
     c: 4,
-    t: [Trait.chemBaron, Trait.dominator],
+    t: [trait.chemBaron, trait.dominator],
     img: 'Silco.jpg',
   },
-  singed: {
+  [singed]: {
+    id: 'singed',
     k: singed,
     c: 1,
-    t: [Trait.chemBaron, Trait.sentinel],
+    t: [trait.chemBaron, trait.sentinel],
     img: 'Singed.png',
   },
-  smeech: {
+  [smeech]: {
+    id: 'smeech',
     k: smeech,
     c: 3,
-    t: [Trait.chemBaron, Trait.ambusher],
+    t: [trait.chemBaron, trait.ambusher],
     img: 'Smeech.jpg',
   },
-  steb: {
+  [steb]: {
+    id: 'steb',
     k: steb,
     c: 1,
-    t: [Trait.enforcer, Trait.bruiser],
+    t: [trait.enforcer, trait.bruiser],
     img: 'Steb.jpg',
   },
-  swain: {
+  [swain]: {
+    id: 'swain',
     k: swain,
     c: 3,
-    t: [Trait.conqueror, Trait.formSwapper, Trait.sorcerer],
+    t: [trait.conqueror, trait.formSwapper, trait.sorcerer],
     img: 'Swain.png',
   },
-  tristana: {
+  [tristana]: {
+    id: 'tristana',
     k: tristana,
     c: 2,
-    t: [Trait.emissary, Trait.artillerist],
+    t: [trait.emissary, trait.artillerist],
     img: 'Tristana.png',
   },
-  trundle: {
+  [trundle]: {
+    id: 'trundle',
     k: trundle,
     c: 2,
-    t: [Trait.scrap, Trait.bruiser],
+    t: [trait.scrap, trait.bruiser],
     img: 'Trundle.png',
   },
-  twistedFate: {
+  [twistedFate]: {
+    id: 'twistedFate',
     k: twistedFate,
     c: 3,
-    t: [Trait.enforcer, Trait.quickstriker],
+    t: [trait.enforcer, trait.quickstriker],
     img: 'TwistedFate.png',
   },
-  twitch: {
+  [twitch]: {
+    id: 'twitch',
     k: twitch,
     c: 4,
-    t: [Trait.experiment, Trait.sniper],
+    t: [trait.experiment, trait.sniper],
     img: 'Twitch.png',
   },
-  urgot: {
+  [urgot]: {
+    id: 'urgot',
     k: urgot,
     c: 2,
-    t: [Trait.experiment, Trait.artillerist, Trait.pitFighter],
+    t: [trait.experiment, trait.artillerist, trait.pitFighter],
     img: 'Urgot.png',
   },
-  vander: {
+  [vander]: {
+    id: 'vander',
     k: vander,
     c: 2,
-    t: [Trait.family, Trait.watcher],
+    t: [trait.family, trait.watcher],
     img: 'Vander.jpg',
   },
-  vex: {
+  [vex]: {
+    id: 'vex',
     k: vex,
     c: 1,
-    t: [Trait.rebel, Trait.visionary],
+    t: [trait.rebel, trait.visionary],
     img: 'Vex.png',
   },
-  vi: {
+  [vi]: {
+    id: 'vi',
     k: vi,
     c: 4,
-    t: [Trait.enforcer, Trait.pitFighter],
+    t: [trait.enforcer, trait.pitFighter],
     img: 'Vi.png',
   },
-  violet: {
+  [violet]: {
+    id: 'violet',
     k: violet,
     c: 1,
-    t: [Trait.family, Trait.pitFighter],
+    t: [trait.family, trait.pitFighter],
     img: 'Violet.jpg',
   },
-  vladimir: {
+  [vladimir]: {
+    id: 'vladimir',
     k: vladimir,
     c: 2,
-    t: [Trait.blackRose, Trait.sorcerer, Trait.watcher],
+    t: [trait.blackRose, trait.sorcerer, trait.watcher],
     img: 'Vladimir.png',
   },
-  zeri: {
+  [zeri]: {
+    id: 'zeri',
     k: zeri,
     c: 2,
-    t: [Trait.firelight, Trait.sniper],
+    t: [trait.firelight, trait.sniper],
     img: 'Zeri.png',
   },
-  ziggs: {
+  [ziggs]: {
+    id: 'ziggs',
     k: ziggs,
     c: 2,
-    t: [Trait.scrap, Trait.dominator],
+    t: [trait.scrap, trait.dominator],
     img: 'Ziggs.png',
   },
-  zoe: {
+  [zoe]: {
+    id: 'zoe',
     k: zoe,
     c: 4,
-    t: [Trait.rebel, Trait.sorcerer],
+    t: [trait.rebel, trait.sorcerer],
     img: 'Zoe.png',
   },
-  zyra: {
+  [zyra]: {
+    id: 'zyra',
     k: zyra,
     c: 1,
-    t: [Trait.experiment, Trait.sorcerer],
+    t: [trait.experiment, trait.sorcerer],
     img: 'Zyra.png',
   },
 };
