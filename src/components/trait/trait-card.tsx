@@ -1,20 +1,56 @@
-import { bs } from '@/lib/utils';
+import { bs, cn } from '@/lib/utils';
 
 interface IProps {
   id: string;
-  bit: bigint;
-  arr: number[];
   count: number;
   active: number[];
+  isUnique?: boolean;
 }
+type OmitId = Omit<IProps, 'id'>;
 
-export const TraitCard = ({ id, bit, count, arr, active }: IProps) => {
+const TraitDesc = ({ count, active }: OmitId) => {
+  if (count < active[0]) {
+    return (
+      <span>
+        {count} / {active[0]}
+      </span>
+    );
+  }
+  const b = bs(active, count);
+  return (
+    <>
+      {active.map((x, i) => (
+        <>
+          <span className={cn([b === i && 'font-bold'])}>{x}</span>
+          {i !== active.length - 1 && <span>{'>'}</span>}
+        </>
+      ))}
+    </>
+  );
+};
+
+const traitBackground = ({ count, active, isUnique }: OmitId) => {
+  if (count < active[0]) {
+    return 'darken';
+  }
+  if (isUnique) {
+    return 'unique';
+  }
+  const b = bs(active, count);
+  return ['bronze', 'silver', 'gold', 'gold', 'chromatic'][b];
+};
+
+export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
   return (
     <div className="flex items-center bg-secondary rounded-sm py-1 px-2 gap-1.5 text-xs">
       <div
         className="relative w-6 h-6"
         style={{
-          background: `url(/background/bronze.svg) center center / cover no-repeat`,
+          background: `url(/background/${traitBackground({
+            count,
+            active,
+            isUnique,
+          })}.svg) center center / cover no-repeat`,
         }}
       >
         <img
@@ -23,9 +59,11 @@ export const TraitCard = ({ id, bit, count, arr, active }: IProps) => {
         />
       </div>
       <div className="font-bold">{count}</div>
-      <div className="">
+      <div className="pl-0.5">
         <div>{id}</div>
-        <div>{active.join('>')}</div>
+        <div className="">
+          <TraitDesc count={count} active={active} />
+        </div>
       </div>
     </div>
   );

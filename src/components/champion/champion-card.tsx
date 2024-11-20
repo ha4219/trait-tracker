@@ -9,7 +9,7 @@ export const ChampionCard = ({ c, img, id, k }: Champion) => {
 
   return (
     <button
-      className={`relative overflow-hidden rounded-md border-2 h-32 min-w-16`}
+      className={`relative overflow-hidden rounded-md border-2 min-h-16 min-w-16 max-w-32 max-h-32`}
       style={{ borderColor: color }}
       onClick={onClick}
     >

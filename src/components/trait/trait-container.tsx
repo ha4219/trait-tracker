@@ -1,22 +1,37 @@
-import { useChampions } from '@/hooks/use-champions';
 import { TraitCard } from './trait-card';
-import { trait as T } from '@/data';
+import { traits as T } from '@/data';
 import { getCount, numArrToBit } from '@/lib/bit';
 
-export const TraitContainer = () => {
-  const { champions } = useChampions();
+interface IProps {
+  champions: bigint;
+}
+
+export const TraitContainer = ({ champions }: IProps) => {
   const traits = Object.values(T)
-    .map(({ id, arr, active }) => {
+    .map(({ id, arr, active, isTeamUp, isUnique }) => {
       const bit = numArrToBit(arr);
+      const count = getCount(bit & champions);
       return {
-        id: id,
+        id,
         bit,
         arr,
         active,
-        count: getCount(bit & champions),
+        isActive: count >= active[0],
+        count,
+        isTeamUp,
+        isUnique,
       };
     })
-    .filter(({ count }) => count > 0);
+    .filter(({ count, isTeamUp }) => count > 0 && !isTeamUp)
+    .sort((l, r) => {
+      if (l.isUnique == r.isUnique) {
+        if (l.isActive === r.isActive) {
+          return r.count - l.count;
+        }
+        return l.isActive ? -1 : 1;
+      }
+      return l.isUnique ? -1 : 1;
+    });
   return (
     <div className="flex flex-wrap gap-2">
       {traits.map((x) => (

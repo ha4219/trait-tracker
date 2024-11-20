@@ -1,8 +1,7 @@
 export const getAll = (bit: bigint) => {
   const res = [];
-  bit >>= 1n;
 
-  for (let i = 1; i < 61; i++) {
+  for (let i = 0; i < 60; i++) {
     if (bit & 1n) {
       res.push(i);
     }
