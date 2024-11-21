@@ -20,10 +20,10 @@ const TraitDesc = ({ count, active }: OmitId) => {
   return (
     <>
       {active.map((x, i) => (
-        <>
+        <span key={i}>
           <span className={cn([b === i && 'font-bold'])}>{x}</span>
           {i !== active.length - 1 && <span>{'>'}</span>}
-        </>
+        </span>
       ))}
     </>
   );

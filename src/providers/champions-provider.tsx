@@ -7,9 +7,17 @@ export const ChampionProvider = ({
   children: React.ReactNode;
 }) => {
   const [champions, setChampions] = useState(0n);
+  const [others, _setOthers] = useState(0n);
 
   return (
-    <ChampionsContext.Provider value={{ champions, setChampions }}>
+    <ChampionsContext.Provider
+      value={{
+        champions,
+        setChampions,
+        others,
+        _setOthers,
+      }}
+    >
       {children}
     </ChampionsContext.Provider>
   );
