@@ -19,7 +19,7 @@ export const ResultContainer = () => {
       return;
     }
     setUrl((prev) => new Set([fn, ...prev]));
-    fetch(`/data/${fn}.json`)
+    fetch(`data/${fn}.json`)
       .then((res) => res.json())
       .then((res) => setData((prev) => [...prev, ...res]));
   }, [fn, url]);

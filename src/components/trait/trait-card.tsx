@@ -48,7 +48,7 @@ export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
       <div
         className="relative w-6 h-6"
         style={{
-          background: `url(/background/${traitBackground({
+          background: `url(background/${traitBackground({
             count,
             active,
             isUnique,
@@ -57,7 +57,7 @@ export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
       >
         <img
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[15px] w-[15px] object-cover object-center"
-          src={`/traits/black/${id}.svg`}
+          src={`traits/black/${id}.svg`}
         />
       </div>
       <div className="font-bold">{count}</div>

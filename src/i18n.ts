@@ -9,11 +9,16 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+
     debug: process.env.NODE_ENV === 'development',
     supportedLngs: ['en', 'ko'],
 
     interpolation: {
       escapeValue: false,
+    },
+
+    backend: {
+      loadPath: 'locales/{{lng}}/{{ns}}.json',
     },
   });
 

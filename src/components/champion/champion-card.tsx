@@ -26,7 +26,7 @@ export const ChampionCard = ({
     >
       <img
         className="w-full h-full object-cover object-center"
-        src={`/champions/${img}`}
+        src={`champions/${img}`}
         alt={id}
       />
       <Gold
