@@ -44,7 +44,7 @@ const traitBackground = ({ count, active, isUnique }: OmitId) => {
 export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
   const { t } = useTranslation();
   return (
-    <div className="flex items-center bg-secondary rounded-sm py-1 px-2 gap-1.5 text-xs">
+    <div className="flex items-center bg-secondary rounded-sm py-1 px-2 gap-1.5 text-xs md:text-sm">
       <div
         className="relative w-6 h-6"
         style={{

@@ -95,5 +95,10 @@
     "sisters": "자매",
     "unlikelyDuo": "뜻밖의 2인조",
     "whatCouldHaveBeen": "또 다른 결말"
+  },
+  "description": {
+    "board": "Board",
+    "filter": "Filter",
+    "compositions": "Compositions"
   }
 }

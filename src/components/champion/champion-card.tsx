@@ -20,7 +20,7 @@ export const ChampionCard = ({
 
   return (
     <button
-      className="relative overflow-hidden rounded-md border-2 min-h-16 min-w-16 max-w-32 max-h-32"
+      className="relative overflow-hidden rounded-md border-2 min-h-8 min-w-8 max-w-32 max-h-32"
       style={{ borderColor: color }}
       onClick={onClick}
     >
@@ -31,10 +31,10 @@ export const ChampionCard = ({
       />
       <Gold
         x={c}
-        className={`absolute top-[-3px] right-0 px-0.5 rounded-bl-md flex items-center justify-center font-semibold text-sm text-white`}
+        className={`absolute top-[-3px] right-0 px-0.5 rounded-bl-md flex items-center justify-center font-semibold text-xs text-white md:text-sm`}
         style={{ backgroundColor: color }}
       />
-      <span className="absolute bottom-0 left-0 w-full text-center text-white text-xs font-semibold text-nowrap">
+      <span className="absolute bottom-0 left-0 w-full text-center text-white text-xs md:text-sm font-semibold text-nowrap">
         {t(`champions.${id}`)}
       </span>
     </button>

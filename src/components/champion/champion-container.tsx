@@ -7,14 +7,16 @@ interface IProps {
   champions: bigint;
   className?: string;
   canClick?: boolean;
+  dir?: string;
 }
 export const ChampionContainer = ({
   champions,
   className,
   canClick,
+  dir,
 }: IProps) => {
   return (
-    <div className={cn('', className)}>
+    <div className={cn('', className)} dir={dir}>
       {getAll(champions).map((x) => (
         <ChampionCard key={x} {...C[x]} canClick={canClick} />
       ))}

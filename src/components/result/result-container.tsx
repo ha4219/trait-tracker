@@ -6,11 +6,13 @@ import { champions as C } from '@/data';
 import { getAll } from '@/lib/bit';
 import { ResultCard } from './result-card';
 import { DataType, DEFAULT_DATA } from '@/default';
+import { useTranslation } from 'react-i18next';
 
 export const ResultContainer = () => {
   const { champions, fn } = useChampions();
   const [data, setData] = useState<DataType[]>(DEFAULT_DATA);
   const [url, setUrl] = useState(new Set([0n]));
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (url.has(fn)) {
@@ -39,9 +41,14 @@ export const ResultContainer = () => {
 
   return (
     <div>
-      {res.map((x, i) => (
-        <ResultCard key={x.c.toString() + i} {...x} />
-      ))}
+      <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl">
+        {t('description.compositions')}
+      </h2>
+      <div>
+        {res.map((x, i) => (
+          <ResultCard key={x.c.toString() + i} {...x} />
+        ))}
+      </div>
     </div>
   );
 };

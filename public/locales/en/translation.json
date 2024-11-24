@@ -95,5 +95,10 @@
     "sisters": "Sisters",
     "unlikelyDuo": "Unlikely Duo",
     "whatCouldHaveBeen": "What Could Have Been"
+  },
+  "description": {
+    "board": "Board",
+    "filter": "Filter",
+    "compositions": "Compositions"
   }
 }
