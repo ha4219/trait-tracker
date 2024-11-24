@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ChampionsContext } from '@/context/champions-context';
-import { TRAITS_LENGTH, TEAM_UP_LENGTH } from '@/data';
-import { getCount } from '@/lib/bit';
+import { TRAITS_LENGTH, TEAM_UP_LENGTH, champions as C } from '@/data';
+import { getAll, getCount } from '@/lib/bit';
 
 export const useChampions = () => {
   const context = useContext(ChampionsContext);
@@ -27,7 +27,13 @@ export const useChampions = () => {
       ? _setOthers((prev) => value | (prev & EM_MASK))
       : _setOthers((prev) => value | prev);
   };
+
+  const fn = getAll(champions).reduce(
+    (acc, x) => (C[x].c < 4 ? acc : acc | (1n << BigInt(x))),
+    0n,
+  );
   return {
+    fn,
     others,
     setOthers: _setOthers,
     champions,

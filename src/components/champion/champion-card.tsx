@@ -1,6 +1,7 @@
 import { Champion } from '@/data';
 import { useChampions } from '@/hooks/use-champions';
 import { Gold } from '@/components/gold';
+import { useTranslation } from 'react-i18next';
 
 export const ChampionCard = ({
   c,
@@ -12,6 +13,7 @@ export const ChampionCard = ({
   // const color = ['#848999', '#11b288', '#207ac7', '#c440da', '#ffb93b'][c - 1];
   const color = ['#b5b5b5', '#14cf11', '#2c76e9', '#db1fe9', '#b8a31c'][c - 1];
   const { setChampions } = useChampions();
+  const { t } = useTranslation();
 
   const onClick = () =>
     canClick && setChampions((prev) => prev ^ (1n << BigInt(k)));
@@ -32,8 +34,8 @@ export const ChampionCard = ({
         className={`absolute top-[-3px] right-0 px-0.5 rounded-bl-md flex items-center justify-center font-semibold text-sm text-white`}
         style={{ backgroundColor: color }}
       />
-      <span className="absolute bottom-0 left-0 w-full text-center text-white font-semibold">
-        {id}
+      <span className="absolute bottom-0 left-0 w-full text-center text-white text-xs font-semibold text-nowrap">
+        {t(`champions.${id}`)}
       </span>
     </button>
   );

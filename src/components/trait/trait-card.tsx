@@ -1,4 +1,5 @@
 import { bs, cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
   id: string;
@@ -41,6 +42,7 @@ const traitBackground = ({ count, active, isUnique }: OmitId) => {
 };
 
 export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center bg-secondary rounded-sm py-1 px-2 gap-1.5 text-xs">
       <div
@@ -60,7 +62,7 @@ export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
       </div>
       <div className="font-bold">{count}</div>
       <div className="pl-0.5">
-        <div>{id}</div>
+        <div>{t(`traits.${id}`)}</div>
         <div className="">
           <TraitDesc count={count} active={active} />
         </div>

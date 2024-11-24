@@ -33,7 +33,7 @@ export const TraitContainer = ({ champions }: IProps) => {
       return l.isUnique ? -1 : 1;
     });
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-1">
       {traits.map((x) => (
         <TraitCard key={x.id} {...x} />
       ))}

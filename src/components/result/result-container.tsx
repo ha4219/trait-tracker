@@ -1,31 +1,30 @@
 import { useChampions } from '@/hooks/use-champions';
 import { useEffect, useState } from 'react';
-import { compareList, parseBigInt } from '@/lib/utils';
+import { compareList } from '@/lib/utils';
 
 import { champions as C } from '@/data';
 import { getAll } from '@/lib/bit';
 import { ResultCard } from './result-card';
-
-type Data = {
-  c: bigint;
-  v: number;
-  t: [number, number, number, number, number];
-};
+import { DataType, DEFAULT_DATA } from '@/default';
 
 export const ResultContainer = () => {
-  const { champions } = useChampions();
-  const [data, setData] = useState<Data[]>([]);
+  const { champions, fn } = useChampions();
+  const [data, setData] = useState<DataType[]>(DEFAULT_DATA);
+  const [url, setUrl] = useState(new Set([0n]));
 
   useEffect(() => {
-    fetch('/comb/a.json')
-      .then((res) => res.text())
-      .then((res) => JSON.parse(res, parseBigInt))
+    if (url.has(fn)) {
+      return;
+    }
+    setUrl((prev) => new Set([fn, ...prev]));
+    fetch(`/data/${fn}.json`)
+      .then((res) => res.json())
       .then((res) => setData((prev) => [...prev, ...res]));
-  }, []);
+  }, [fn, url]);
 
   const res = data
     .map((x) => {
-      const c = x.c & ~champions;
+      const c = BigInt(x.c) & ~champions;
       const t: [number, number, number, number, number, number] = [
         0, 0, 0, 0, 0, 0,
       ];
@@ -33,7 +32,7 @@ export const ResultContainer = () => {
         t[0] += C[y].c;
         t[6 - C[y].c] += 1;
       });
-      return { c: x.c, t };
+      return { c: BigInt(x.c), t };
     })
     .sort((l, r) => compareList(l.t, r.t))
     .slice(0, 10);
