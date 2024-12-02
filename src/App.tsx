@@ -13,7 +13,7 @@ function App() {
   return (
     <main className="container mx-auto px-4 gap-y-1 grid grid-flow-row">
       <div className="flex justify-center">
-        <img src="logo-t.png" />
+        <img src="logo-t.png" alt="logo" />
       </div>
       <header className="py-10" dir="rtl">
         <LangSelect />

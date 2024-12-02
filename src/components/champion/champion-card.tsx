@@ -10,7 +10,6 @@ export const ChampionCard = ({
   k,
   canClick,
 }: Champion & { canClick?: boolean }) => {
-  // const color = ['#848999', '#11b288', '#207ac7', '#c440da', '#ffb93b'][c - 1];
   const color = ['#b5b5b5', '#14cf11', '#2c76e9', '#db1fe9', '#b8a31c'][c - 1];
   const { setChampions } = useChampions();
   const { t } = useTranslation();

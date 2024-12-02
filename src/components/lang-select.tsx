@@ -24,8 +24,12 @@ export const LangSelect = ({ className }: IProps) => {
   } = useTranslation();
 
   return (
-    <Select value={language} onValueChange={(x) => changeLanguage(x)}>
-      <SelectTrigger className={cn('w-[120px]', className)}>
+    <Select
+      value={language}
+      onValueChange={(x) => changeLanguage(x)}
+      name="language-select"
+    >
+      <SelectTrigger className={cn('w-[120px]', className)} name="language-btn">
         <GlobeIcon size={16} className="inline mr" />
         <SelectValue>
           {LANG.find((x) => x.value === language)?.label}

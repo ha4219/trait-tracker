@@ -58,6 +58,7 @@ export const TraitCard = ({ id, count, active, isUnique }: IProps) => {
         <img
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[15px] w-[15px] object-cover object-center"
           src={`traits/black/${id}.svg`}
+          alt={id}
         />
       </div>
       <div className="font-bold">{count}</div>
