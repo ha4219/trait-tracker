@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeongdongha.me/trait-tracker/sitemap.xml
